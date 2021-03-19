@@ -25,7 +25,7 @@ SECRET_KEY = '7+!sxlx1n5#fiq08a+cuv559c(1-!_=k()utb+*n1-lg79y=6!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    
+    'addkabaad.apps.AddkabaadConfig',
+    'shopping_cart.apps.ShoppingCartConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import os
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
 LOGIN_REDIRECT_URL	=	'dashboard'
 LOGIN_URL	=	'login'
 LOGOUT_URL	=	'logout'
@@ -128,3 +137,4 @@ AUTHENTICATION_BACKENDS	=	[
 	'django.contrib.auth.backends.ModelBackend',
 	'account.authentication.EmailAuthBackend',
    ]
+
