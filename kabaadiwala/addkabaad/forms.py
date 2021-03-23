@@ -7,7 +7,7 @@ from	django.utils.text	import slugify
 class	ProductCreateForm(forms.ModelForm):
     class Meta:
         model=Product
-        fields=('name','category','image','description','price','available')
+        fields=('name','category','image','description','price')
         
   
     

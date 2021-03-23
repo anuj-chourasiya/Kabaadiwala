@@ -1,17 +1,17 @@
-from	django.shortcuts	import	render,	redirect
-from	.forms	import	ProductCreateForm
-from	django.contrib	import	messages
-from	django.contrib.auth.decorators	import	login_required
-from	django.shortcuts	import	get_object_or_404
-from	.models	import	Product,Category
-from	django.core.paginator	import	Paginator,	EmptyPage,	\
+from django.shortcuts import render, redirect
+from .forms	import	ProductCreateForm
+from django.contrib	import	messages
+from django.contrib.auth.decorators	import login_required
+from django.shortcuts import get_object_or_404
+from .models import	Product,Category
+from django.core.paginator	import	Paginator,	EmptyPage,	\
 	PageNotAnInteger
-from	django.http	import	HttpResponse
+from django.http	import	HttpResponse
 from shopping_cart.models import Order
 # Create your views here.
 
 @login_required
-def	product_create(request):
+def	product_create(request,**kwargs):
     
     if	request.method	==	'POST':
 	#	form	is	sent
@@ -23,6 +23,11 @@ def	product_create(request):
             new_item=form.save(commit=False)
             #assign	current	user to	the	item
             new_item.user = request.user
+            typo = kwargs.get('decision', "")
+            if typo=="sell":
+                new_item.decision=False
+            else:
+                new_item.decision=True
             new_item.save()
            
             
@@ -38,6 +43,7 @@ def	product_create(request):
     {'section':	'products',
     'form':	form})
 
+@login_required
 def	product_detail(request,id,slug):
     product = get_object_or_404(Product, id=id, slug=slug)
     object_list = Product.objects.all()
@@ -62,11 +68,12 @@ def	product_detail(request,id,slug):
 def	product_list(request,category_slug=None):
     category = None
     categories = Category.objects.all()
-    products	=	Product.objects.all()
+    products=Product.objects.all()
+    products = products.filter(decision=False)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        products = products.filter(category=category)
-    paginator	=	Paginator(products,	8)
+        products = products.filter(category=category,decision=False)
+    paginator = Paginator(products,	8)
     page = request.GET.get('page')
     try:
         products	=	paginator.page(page)
