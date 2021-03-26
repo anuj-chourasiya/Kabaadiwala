@@ -2,36 +2,67 @@
 {% load static %}
 {% block	title	%}Product available{%	endblock	%}
 {% block content	%}
-    <h1>Product list</h1>
-    <div id="sidebar">
-        <h3>Categories</h3>
-        <ul>
-        <li {% if not category %}class="selected"{% endif %}>
-        <a href="{% url "kabaad:list" %}">All</a>
-        </li>
-        {% for c in categories %}
-        <li {% if category.slug == c.slug %}class="selected"
-        {% endif %}>
-        <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
-        </li>
-        {% endfor %}
-        </ul>
-        </div>
-        <div id="main" class="product-list">
-        <h1>{% if category %}{{ category.name }}{% else %}Products
-        {% endif %}</h1>
+
+
+ <div id="category" class="section  product">
+    <div class="container">
+       <div class="row">
+          <div class="col-md-12 ">
+             <div class="titlepage">
+                <h2><strong class="black"> Cate</strong>gories</h2>
+                   <ul>
+                        <li {% if not category %}class="selected"{% endif %}>
+                          <a href="{% url "kabaad:list" %}">All</a>
+                         </li>
+                    {% for c in categories %}
+                    <li {% if category.slug == c.slug %}class="selected"
+                    {% endif %}>
+                    <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+                    </div>
+                    <div id="main" class="product-list">
+                    <h1>{% if category %}{{ category.name }}{% else %}Products
+                    {% endif %}</h1>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+
+
+
+ <div class="clothes_main section ">
+    <div class="container">
+      <div class="row">
+         
         {% for product in products %}
-        <div class="item">
-        <a href="{{ product.get_absolute_url }}">
-        <img src="{% if product.image %} {{ product.image.url }}
-        {%else %}{% static "img/driving_licence.jpg" %}{% endif %}" width='100'>
-        </a>
-        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-        <br>
-        ${{ product.price }}
-        </div>
-        {% endfor %}
-        </div>
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+           <div class="sport_product">
+                <figure><a href="{{ product.get_absolute_url }}">
+                    <img src="{% if product.image %} {{ product.image.url }}
+                    {%else %}{% static "img/driving_licence.jpg" %}{% endif %}" width='140' height='300'>
+                    </a></figure>
+
+                    
+              <h3> ₹<strong class="price_text"> {{ product.price }}</strong></h3>
+               <h4><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
+            </div>
+         </div>
+
+         {% endfor %}
+         </div>
+       </div>
+      </div>
+    
+        
+        
+       
+      
+      
+        
+       
       
 
 

@@ -1,11 +1,30 @@
 {%	extends	"base.html"	%}
 {%	block	title	%}Add our kabaad{%	endblock	%}
 {%	block	content	%}
-	<h1>Add your Kabaad</h1>
+    <div class="section about ">
+        <div class="container">
+            <div class="row">
+               <div class="col-12">
+                  <div class="titlepage">
+                 <h2><strong class="black">Sell </strong>Kabaad</h2>
+                <span></span>
+             </div>
+           </div>
+        </div>
+    </div>
+ </div>
+ <table style="background-color:#1E90FF; " align="center" width="40%" cellspacing=10px cellpadding=10px id="form" >
 	<form	action="."	method="post" enctype="multipart/form-data">
         {%	csrf_token	%}
-        {{	form.as_p	}}
-       
-        <input	type="submit"	value="Bookmark	it!">
-            </form>
-    {%	endblock	%}
+        {{	form.as_table	}}
+        
+        </table>
+        <table align="center" cellspacing=20px cellpadding=20px width="10%">
+        <tr>
+        <td> <input	type="submit"	value="Submit"></td>
+        
+        <td><input type="reset" value="RESET"></input></td>
+    </form>    
+    </tr>
+        </table>
+{%	endblock	%}
