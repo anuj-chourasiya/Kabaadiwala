@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     
+    'home.apps.HomeConfig',
     'addkabaad.apps.AddkabaadConfig',
     'shopping_cart.apps.ShoppingCartConfig',
     'django_extensions',
