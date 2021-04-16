@@ -2,14 +2,14 @@ from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import OrderItem,Order
+from .models import OrderItem,Order,ShippingAddress
 from account.models import Profile
 from addkabaad.models import Product
-
-
-
 import datetime
+import json
+from django.views.decorators.csrf import csrf_exempt
 
 
 
@@ -65,8 +65,33 @@ def order_details(request, **kwargs):
     }
     return render(request, 'order_summary.html', context)
 
+@login_required()
+def checkout(request):  
+    existing_order = get_user_pending_order(request)
+    context = {
+        'order': existing_order,
+    }
 
+    return render(request, 'checkout.html', context)
 
-
-
-
+@csrf_exempt
+@login_required
+def processOrder(request):
+    if request.method=='POST':
+        data=json.loads(request.body)
+        user_profile = get_object_or_404(Profile, user=request.user)
+        user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
+        total=data['form']['total']
+        if str(total)==str(user_order.get_cart_total()):
+            print("hry")
+            user_order.is_ordered=True
+        user_order.save()
+        ShippingAddress.objects.create(
+            owner=user_profile,
+            order=user_order,
+            address=data['shipping']['address'],
+            city=data['shipping']['city'],
+            state=data['shipping']['state'],
+            zipcode=data['shipping']['zipcode'],
+            )
+        return JsonResponse('Order placed',safe=False)
