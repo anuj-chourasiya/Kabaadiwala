@@ -1,7 +1,5 @@
 from __future__ import unicode_literals
-
 from django.db import models
-
 from account.models import Profile
 from addkabaad.models import Product
 
@@ -33,22 +31,19 @@ class Order(models.Model):
         return '{0} - {1}'.format(self.owner, self.ref_code)
 
 
-class Transaction(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
-    token = models.CharField(max_length=120)
-    order_id = models.CharField(max_length=120)
-    amount = models.DecimalField(max_digits=100, decimal_places=2)
-    success = models.BooleanField(default=True)
-    timestamp = models.DateTimeField(auto_now_add=True, auto_now=False)
+class ShippingAddress(models.Model):
+    owner = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
+    order = models.ForeignKey(Order, on_delete=models.SET_NULL, null=True)
+    is_ordered = models.BooleanField(default=False)
+    address = models.CharField(max_length=200,null=True)
+    city = models.CharField(max_length=200,null=True)
+    state = models.CharField(max_length=200,null=True)
+    zipcode = models.CharField(max_length=200,null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+
 
     def __str__(self):
-        return self.order_id
-
-    class Meta:
-        ordering = ['-timestamp']
-
-
-
+        return self.address
 
 
 
