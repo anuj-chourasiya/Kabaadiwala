@@ -65,8 +65,7 @@
                                     <li><a href="{% url 'addkabaad:create-sell' %}">Sell</a></li>
                                     <li><a href="{% url 'addkabaad:create-donate' %}">Donate</a></li>
                                 
-                                 <li> <a href="about.html">About</a> </li>
-								         <li><a href="contact.html">Contact us</a></li>
+                                
                                  {%	if	request.user.is_authenticated	%}
                                  <li><a href="{% url 'logout' %}">Logout</a></li>
                                  {%	else	%}
@@ -86,7 +85,7 @@
       </header>
 
 	<div	id="content mb-5">
-      <br><br><br>
+      
    {%	block	content	%}
       
       
