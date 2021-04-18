@@ -2625,6 +2625,14 @@ table{
      height:400px;
      margin-left: 100px;
 }
+@media (max-width: 550px){
+	
+     .detail-img{
+          width:400px;
+          height:400px;
+          margin-left: -20px;
+          }
+     }
 
 .product-detail-text{
      margin-left: 30px;
