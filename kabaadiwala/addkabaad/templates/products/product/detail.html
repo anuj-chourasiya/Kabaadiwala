@@ -5,23 +5,52 @@
 {%	block	content	%}
 
 <br><br><br>
-    <div class="product">
-        <h1>{{product.name}}</h1>
-        <img src="{% if product.image %} {{ product.image.url }}  {% endif %}" width='200'>
-    
-        <h1>{{product.description}}</h1>
-        <h1>{{product.available}}</h1>
-        <h1>{{product.}}</h1>
-        <h1>{{product.price}}</h1>
-        {% if user == product.user %}
-            <!-- add a button here to see the product -->
-        You own this
-        {% elif product in current_order_products %}
-        <a href="{% url 'cart:order_summary'%}" class="btn btn-warning">Go to Cart</a>
-        {% else %}
-        <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
-        {% endif %}
 
+<!--Section: Block Content-->
+<section class="mb-5">
+
+    <div class="row">
+      <div class="col-md-4 mb-4 mb-md-0">
+        <div id="mdb-lightbox-ui"></div>
+        <div class="mdb-lightbox">
+        <div class="row product-gallery mx-1">
+            <div class="col-12 mb-0">
+              <figure class="view overlay rounded z-depth-1 main-img">
+                <img src="{% if product.image %} {{ product.image.url }}  {% endif %}" 
+                    class="detail-img">
+              </figure>
+            </div>
+        </div>
+        </div>
+        </div>
+      <div class="col-md-8 ">
+            <div class="product-detail-text">
+                <h2>{{product.name}}</h2>
+                <p class="mb-2 text-muted text-uppercase small">{{product.category}}</p>
+                <p><span class="mr-1"><strong>₹{{product.price}}</strong></span></p>
+                <p class="pt-1">{{product.description}}</p>
+                
+                {% if user == product.user %}
+                    <h3>You own this</h3>
+                {% elif product in current_order_products %}
+                <a href="{% url 'cart:order_summary'%}" class="btn btn-warning">Go to Cart</a>
+                {% else %}
+                <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
+                {% endif %}
+            </div>
+      </div>
     </div>
+  
+  </section>
+  <!--Section: Block Content-->
+<script>
+    $(document).ready(function () {
+    // MDB Lightbox Init
+    $(function () {
+    $("#mdb-lightbox-ui").load("mdb-addons/mdb-lightbox-ui.html");
+    });
+    });
+</script>
+
     
 {%	endblock	%}  
