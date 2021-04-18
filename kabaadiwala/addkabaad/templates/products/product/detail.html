@@ -1,24 +1,27 @@
 {%	extends	"base.html"	%}
-{% load static %}
+
 {%	block	title	%}{{	product.name	}}{%	endblock	%}
 
 {%	block	content	%}
-    <h1>{{product.name}}</h1>
-    <img src="{% if product.image %} {{ product.image.url }}  {% endif %}" width='200'>
-   
-    <h1>{{product.description}}</h1>
-    <h1>{{product.available}}</h1>
-    <h1>{{product.}}</h1>
-    <h1>{{product.price}}</h1>
-    {% if user == product.user %}
-        <!-- add a button here to see the product -->
-    You own this
-    {% elif product in current_order_products %}
-    <a href="{% url 'cart:order_summary'%}" class="btn btn-warning">Go to Cart</a>
-    {% else %}
-    <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
-    {% endif %}
-	
-   
+
+<br><br><br>
+    <div class="product">
+        <h1>{{product.name}}</h1>
+        <img src="{% if product.image %} {{ product.image.url }}  {% endif %}" width='200'>
+    
+        <h1>{{product.description}}</h1>
+        <h1>{{product.available}}</h1>
+        <h1>{{product.}}</h1>
+        <h1>{{product.price}}</h1>
+        {% if user == product.user %}
+            <!-- add a button here to see the product -->
+        You own this
+        {% elif product in current_order_products %}
+        <a href="{% url 'cart:order_summary'%}" class="btn btn-warning">Go to Cart</a>
+        {% else %}
+        <a href="{% url 'cart:add_to_cart' product.id %}" class="btn btn-warning">Add to Cart</a>
+        {% endif %}
+
+    </div>
     
 {%	endblock	%}  

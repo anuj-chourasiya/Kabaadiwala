@@ -18,7 +18,7 @@
                               <h1>Welcome to <strong class="color">Kabaadiwala.com</strong></h1>
                               <h2>Donate Your <strong class="color">Kabaad</strong></h2>
                               <p>Here you can Upload your kabaad and sell it at the most suitable price.You can also sell your kabaad for free.</p>
-                              <a class="btn btn-lg btn-primary" href="selling.html" role="button">Sell Kabaad</a>
+                              <a class="btn btn-lg btn-primary" href="{% url 'addkabaad:create-sell' %}" role="button">Sell Kabaad</a>
                               <!--<a class="btn btn-lg btn-primary" href="about.html" role="button"></a>-->
                            </div>
                         </div>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                            <div class="img-box ">
-                              <figure><img src="https://ik.imagekit.io/0xdm01uqieh/boksing-gloves_7JaXHa7qe.png?tr=w-1104,h-736,fo-auto" alt="img"/></figure>
+                              <figure><img src="https://ik.imagekit.io/0xdm01uqieh/162382962_15594869001_large_Bbj-pRWeY.jpg" alt="img"/></figure>
                            </div>
                         </div>
                      </div>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                            <div class="img-box">
-                              <figure><img src="https://ik.imagekit.io/0xdm01uqieh/boksing-gloves_7JaXHa7qe.png?tr=w-1104,h-736,fo-auto" alt="img"/></figure>
+                              <figure><img src="https://ik.imagekit.io/0xdm01uqieh/2015-Bajaj-Pulsar-220-F---25800-kms-driven-in-Nehru-Nagar-VB201705171774173-ak_WBP1941185011-1615868582_QVAJlzdOL.png" alt="img"/></figure>
                            </div>
                         </div>
                      </div>
@@ -86,7 +86,7 @@
                 <div class="col-12">
                     <div class="titlepage">
                      <h2><strong class="black"> About</strong>  Us</h2>
-                     <span>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</span>
+                     <span>Kabaadiwala.com is a platform for people to sell or donate products that are of no use for them. The users will have the option to either sell their products to some customers or donate them to the people in need. This platform will act as a bridge between the economically weaker section and the financially stable section. This will also help in reducing the waste production and will also help in the implementation of three R’s of Waste Management making the city clean and green.</span>
                   </div>
                 </div>
              </div>
@@ -108,16 +108,21 @@
                      <div class="row marginii">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                            <div class="carousel-sporrt_text ">
-                              <h1 class="sporrt_text">Best sports item shop our</h1>
-                              <p  class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believableThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</p>
-                              <div class="btn_main">
-                                 <a class="btn btn-lg btn-primary" href="#" role="button">Read More</a>
-                              </div>
+                              <h1 class="sporrt_text">Our Services</h1>
+                              <h2  class="lorem_text">Seller and buyer both could access both website and android application to upload the product.
+                                 Products should be arranged according to the category.
+                                 Buyer could review the product and could be able to communicate with the seller.
+                                 Both app and website should work concurrently.
+                                 Buyer could also enter address and contact details for home delivery of products .
+                                 Seller should be able to add Waste Products.
+                                 Buyer should be able to buy waste product according to the category mentioned.
+                                 Sellers should be able to donate products for free.</h2>
+                     
                            </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                            <div class="img-box">
-                              <figure><img src="images/child-image.png" style="max-width: 100%; border: 15px solid #fff;"/></figure>
+                              <figure><img src="https://ik.imagekit.io/0xdm01uqieh/4710262_waste-management-logo-waste-disposal-clipart-hd-png_yhis-Iu7R.png" style="max-width: 100%; border: 15px solid #fff;"/></figure>
                            </div>
                         </div>
                      </div>
@@ -143,26 +148,7 @@
                      </div>
                   </div>
                </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <div class="row marginii">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                           <div class="carousel-sporrt_text ">
-                              <h1 class="sporrt_text">Best sports item shop our</h1>
-                              <p  class="lorem_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believableThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</p>
-                              <div class="btn_main">
-                                 <a class="btn btn-lg btn-primary" href="#" role="button">Read More</a>
-                              </div>
-                           </div>
-                        </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                           <div class="img-box">
-                              <figure><img src="images/child-image.png" style="max-width: 100%; border: 15px solid #fff;"/></figure>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               
             </div>
          </div>
       </section>
@@ -181,7 +167,7 @@
                <div class="col-md-12 ">
                   <div class="titlepage">
                     <h2><strong class="black"> Contact</strong>  Us</h2>
-                     <span style="text-align: center;">available, but the majority have suffered alteration in some form, by injected randomised words which don't look even slightly believable</span>
+                     <span style="text-align: center;">If you have any queries please contact us through this form. </span>
                   </div>
                </div>
             </div>
@@ -192,7 +178,7 @@
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <div class="soc_text">soC</div>
+                  <div class="soc_text">kabaadiwala.com</div>
                </div>
                <div class="col-md-6">
                   <div class="email_btn">
@@ -220,8 +206,8 @@
                <div class="contact_us_3 layout_padding">
             <div class="row">
                <div class="col-md-4">
-                  <h1 style="color: #ffffff; ">Newsletter</h1>
-                  <p class="long_text">It is a long established fact that a reader will be distracted  a</p>
+                  <h1 style="color: #ffffff; ">Connect</h1>
+                  <p class="long_text">If you want to get notified then subscribe to our application</p>
                </div>
                <div class="col-md-8">
                   <div class="email_text">
@@ -275,10 +261,10 @@
                      <div class="menu_text">
                         <ul>
                            <li class="active"><a href="#">Home</a></li>                         
-                           <li><a href="about.html">About</a></li>
-                           <li><a href="testmonial.html">Testmonial</a></li>
-                           <li><a href="clients.html">Shop</a></li>
-                           <li><a href="contact.html">Contact Us</a></li>
+                          
+                           <li><a href="{% url 'addkabaad:create-sell' %}">sell</a></li>
+                           <li><a href="{% url 'addkabaad:create-donate' %}">Donate</a></li>
+                           <li><a href=" {% url 'addkabaad:list' %}">Buy</a></li>
                         </ul>
                      </div>
                   </div>
