@@ -1649,7 +1649,7 @@ input[type="radio"] .styled:checked+label::after {
      color: #141012;
 font-size: 17px;
 line-height: 31px;
-
+display: block;
 font-weight: normal;
 }
 .clothes_main{
@@ -2638,15 +2638,3 @@ table{
      margin-left: 30px;
      margin-top: 20px;
 }
-
-a {
-     color: #ffffff;
-     text-decoration: none;
- }
- 
- a:hover 
- {
-      color:#ffffff; 
-      text-decoration:none; 
-      cursor:pointer;  
- }
