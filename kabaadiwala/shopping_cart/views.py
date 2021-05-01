@@ -83,7 +83,11 @@ def processOrder(request):
         user_order, status = Order.objects.get_or_create(owner=user_profile, is_ordered=False)
         total=data['form']['total']
         if str(total)==str(user_order.get_cart_total()):
-            print("hry")
+            order_items=user_order.items.all()
+            for item in order_items:
+                product=item.product
+                product.available=False
+                product.save()
             user_order.is_ordered=True
         user_order.save()
         ShippingAddress.objects.create(

@@ -2619,6 +2619,15 @@ table{
      }
 
 
+@media (max-width: 550px){
+	
+     table{
+          border-spacing: 0px;
+          border-collapse: separate;
+          width:0%;
+          color: rgb(0, 0, 0);
+          }
+     }
 
 .detail-img{
      width:400px;

@@ -39,6 +39,8 @@
       <div class="row">
          
         {% for product in products %}
+        <!-- if product user is current user the he wont see his product to uy-->
+        {% if user != product.user %}
         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
            <div class="sport_product">
                 <figure><a href="{{ product.get_absolute_url }}">
@@ -51,7 +53,7 @@
                <h4><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></h4>
             </div>
          </div>
-
+         {% endif %}
          {% endfor %}
          </div>
        </div>
