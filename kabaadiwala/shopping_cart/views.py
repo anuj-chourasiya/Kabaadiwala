@@ -93,6 +93,7 @@ def processOrder(request):
         ShippingAddress.objects.create(
             owner=user_profile,
             order=user_order,
+            is_ordered = True,
             address=data['shipping']['address'],
             city=data['shipping']['city'],
             state=data['shipping']['state'],
